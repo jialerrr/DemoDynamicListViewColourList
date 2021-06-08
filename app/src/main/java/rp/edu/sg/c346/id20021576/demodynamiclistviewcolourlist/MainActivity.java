@@ -47,13 +47,15 @@ public class MainActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String addCol = etElement.getText().toString();
-                int pos = Integer.parseInt(etIndexElement.getText().toString());
-                if ((pos > alColours.size())){
-                    alColours.add(addCol);
-                    aaColour.notifyDataSetChanged();
-                } else {
+                if (((etIndexElement.getText().toString().isEmpty()) == false)){
+                    int pos = Integer.parseInt(etIndexElement.getText().toString());
+                    String addCol = etElement.getText().toString();
                     alColours.add(pos, addCol);
+                    aaColour.notifyDataSetChanged();
+                }
+                else {
+                    String addCol = etElement.getText().toString();
+                    alColours.add(addCol);
                     aaColour.notifyDataSetChanged();
                 }
             }
